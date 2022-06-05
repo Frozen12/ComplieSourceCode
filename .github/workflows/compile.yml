@@ -1,0 +1,16 @@
+name: Build & compile C or Go project
+
+on:
+  release:
+    types: [created]
+name: Handle Release
+jobs:
+  generate:
+    name: Create release-artifacts
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Generate
+      uses: skx/github-action-build@master
+      with:
+        builder: .github/build
